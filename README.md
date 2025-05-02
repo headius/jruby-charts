@@ -10,14 +10,15 @@ These examples should work with any recent version of JRuby, but we recommend in
 
 1. Install a JDK, if you don't already have one. JRuby 10 requires JDK 21+, JRuby 9.4 will work with JDK 8 (also known as 1.8).
 2. Install JRuby. Most Ruby installers know about JRuby, but there's also packages for major operating systems. You can also just download a JRuby tarball, unpack it, and put the `bin` dir in your `PATH`. It's that easy!
-3. Run `jruby -S lock_jars` from the root of this repository to fetch and install the JFreeChart library.
-4. Run any of the scripts in the `examples` directory from the root of this repository!
+3. Change your working directory to be the `examples` directory and then run `jruby -S lock_jars` to fetch and install the JFreeChart library.
+4. Then run any of the scripts in the `examples` directory!
 
 For example, these commands run from the repository root directory will do the setup and run all the examples, outputting the generated graphs to that same directory:
 
 ```bash
+cd examples  # from the repository root directory
 jruby -S lock_jars
-jruby examples/category_chart.rb
-jruby examples/barchart.rb
-jruby examples/piechart.rb
+jruby category_chart.rb
+jruby barchart.rb
+jruby piechart.rb
 ```
