@@ -1,3 +1,16 @@
+def validate_environment
+  unless RUBY_ENGINE == 'jruby'
+    puts 'This example requires JRuby.'
+    exit 1
+  end
+  unless File.exist?('Jars.lock')
+    puts 'Jars.lock is missing, please run `jruby -S lock_jars`.'
+    exit 1
+  end
+end
+
+validate_environment
+
 require 'jar-dependencies'
 require_jar 'org.jfree', 'jfreechart', '1.5.5'
 require_jar 'org.jfree', 'org.jfree.chart3d', '2.1.0'
@@ -17,7 +30,8 @@ java_import org.jfree.chart3d.marker.CategoryMarker
 require 'json'
 
 dataset = StandardCategoryDataset3D.new
-data = JSON.load(File.read("data/app_monitoring_revenue.json"))
+data_filespec = File.absolute_path(File.join(File.dirname(__FILE__), '../data/app_monitoring_revenue.json'))
+data = JSON.load(File.read(data_filespec))
 data.each do |name, subset|
   values = DefaultKeyedValues.new
   subset.each { values.put(_1, _2) }

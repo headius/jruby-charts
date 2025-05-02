@@ -16,8 +16,9 @@ These examples should work with any recent version of JRuby, but we recommend in
 For example, these commands run from the repository root directory will do the setup and run all the examples, outputting the generated graphs to that same directory:
 
 ```bash
+cd examples  # from the repository root directory
 jruby -S lock_jars
-jruby examples/category_chart.rb
-jruby examples/barchart.rb
-jruby examples/piechart.rb
+jruby category_chart.rb
+jruby barchart.rb
+jruby piechart.rb
 ```
