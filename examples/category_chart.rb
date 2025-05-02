@@ -1,15 +1,7 @@
-def validate_environment
-  unless RUBY_ENGINE == 'jruby'
-    puts 'This example requires JRuby.'
-    exit 1
-  end
-  unless File.exist?('Jars.lock')
-    puts 'Jars.lock is missing, please run `jruby -S lock_jars`.'
-    exit 1
-  end
+unless File.exist?('Jars.lock')
+  puts 'Jars.lock is missing, please run `jruby -S lock_jars`.'
+  exit 1
 end
-
-validate_environment
 
 require 'jar-dependencies'
 require_jar 'org.jfree', 'jfreechart', '1.5.5'
