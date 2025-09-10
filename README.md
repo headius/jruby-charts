@@ -20,4 +20,6 @@ jruby -S lock_jars
 jruby examples/category_chart.rb
 jruby examples/barchart.rb
 jruby examples/piechart.rb
+jruby examples/bubble_chart.rb
+jruby examples/line_chart.rb
 ```
